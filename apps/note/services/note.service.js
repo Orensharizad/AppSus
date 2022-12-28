@@ -11,6 +11,7 @@ export const NoteService = {
     get,
     remove,
     save,
+    getEmptyNote
 }
 
 // function query(filterBy = getDefaultFilter()) {
@@ -58,9 +59,15 @@ function save(note) {
     }
 }
 
-// function getEmptyBook(title = '', price = '') {
-//     return { title: '', price: '' }
-// }
+function getEmptyNote() {
+    return {
+        type: "note-txt",
+        isPinned: false,
+        info: {
+            txt: ''
+        }
+    }
+}
 
 // function getDefaultFilter() {
 //     return { txt: '', minPrice: '', pageCount: '', minYear: '' }
