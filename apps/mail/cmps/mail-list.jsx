@@ -1,14 +1,14 @@
-import { MailPreview } from "./mail-preview";
+import { MailPreview } from "./mail-preview.jsx";
 
-export function MailList() {
+export function MailList({mails, onSelectMail ,MailEdit }) {
 
-    return  <ul className="car-list">
+    return  <ul className="mail-list"> 
     {
+        
         mails.map(mail => <li key={mail.id}>
             <MailPreview mail={mail} />
             <div>
-                {/* <button onClick={() => onRemoveCar(car.id)}>Remove car!</button>
-                <button onClick={() => onSelectCar(car.id)}>Select car!</button> */}
+           <button onClick={() => onSelectMail(mail.id)}>Select mail</button>
             </div>
         </li>)
     }
@@ -16,3 +16,5 @@ export function MailList() {
     
 
 }
+
+

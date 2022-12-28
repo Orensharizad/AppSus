@@ -1,27 +1,45 @@
 const { useState, useEffect } = React
 
-import { MailList } from "../cmps/mail-list"
-import { mailService } from "../services/mail.service"
+import { MailList } from "../cmps/mail-list.jsx"
+import { mailService } from "../services/mail.service.js"
+import { MailDetails } from "./mail-details.jsx"
 
 
 export function MailIndex() {
 
     const [mails, setMails] = useState([])
+    const [selectedMail, setSelectedMail] = useState(null)
 
-useEffect(() => {
-    loadMails()
-}, [])
+    useEffect(() => {
+        loadMails()
+    }, [])
 
-function loadMails() {
-    mailService.query().then(mailsToUpdate => {
-        setMails(mailsToUpdate)
-    })
+    function loadMails() {
+        mailService.query().then(mailsToUpdate => {
+            console.log('mailsToUpdate:', mailsToUpdate);
+            setMails(mailsToUpdate)
+        })
+    }
 
-    return <section className="mail-index ">
-   <h1>hello from mail index </h1>
-        <MailList mails={mails}  />
-      
-</section>
-}
+    function onSelectMail(mailId) {
+        mailService.get(mailId).then((mail) => {
+            const updatedMail = mail
+            updatedMail.isRead = true
+            setSelectedMail(updatedMail)
+            console.log('updatedMail:', updatedMail);
+
+        })
+    }
+
+    return (<section className="mail-index ">
+        <MailList mails={mails} onSelectMail={onSelectMail} />
+
+        {selectedMail &&  <MailDetails
+        mail = {selectedMail}
+        
+        />}
+
+    </section>
+    )
 
 }
