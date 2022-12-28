@@ -4,10 +4,10 @@ import { MailPreview } from "./mail-preview.jsx";
 
 export function MailList({ mails, onSelectMail, onRemoveMail }) {
 
-    return <ul className="mail-list">
+    return    <div className="mail-container"> <ul className="mail-list">
         {
 
-            mails.map(mail => <li key={mail.id}>
+            mails.map(mail => <li className="li-preview"  key={mail.id}>
                 <MailPreview mail={mail} />
                 <div>
                     <button onClick={() => onRemoveMail(mail.id)}>Remove</button>
@@ -17,7 +17,7 @@ export function MailList({ mails, onSelectMail, onRemoveMail }) {
             </li>)
         }
     </ul>
-
+</div>
 
 }
 
