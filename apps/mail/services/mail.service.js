@@ -1,19 +1,17 @@
-import { utilService } from './util.service.js'
-import { storageService } from './async-storage.service.js'
+import { utilService } from '../../../services/util.service.js'
+import { storageService } from '../../../services/async-storage.service.js'
+
 
 const MAIL_KEY = 'mailDB'
 _createMails()
 
-export const MailService = {
+export const mailService = {
     query,
     get,
     remove,
     save,
-    getEmptyBook,
-    getDefaultFilter,
-    getDefaultReview,
-    saveReview,
-    removeReview
+    getEmptyMail
+   
 }
 
 // function query(filterBy = getDefaultFilter()) {
@@ -43,6 +41,10 @@ function query() {
             console.log('mails:', mails);
             return mails
         })
+}
+
+function getEmptyMail(subject = '', body = '' , to ='') {
+    return { subject, body , to}
 }
 
 function get(mailId) {
@@ -139,11 +141,6 @@ function _createMails() {
 
         ]
 
-
-        mails.forEach(mail => {
-            mail.price = mail.listPrice.amount
-            mail.reviews = []
-        })
         utilService.saveToStorage(MAIL_KEY, mails)
     }
 }
