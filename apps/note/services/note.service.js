@@ -128,7 +128,7 @@ function _createNotes() {
             id: "n102",
             type: "note-img",
             info: {
-                url: "http://some-img/me",
+                url: "http://coding-academy.org/books-photos/20.jpg",
                 title: "Bobi and Me"
             },
             style: {

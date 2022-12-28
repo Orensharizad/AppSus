@@ -1,4 +1,15 @@
 .note-preview {
     background-color: lightblue;
-    min-height: 100px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 1em;
+}
+
+.note-preview img {
+    width: 150px;
+    height: 150px;
 }

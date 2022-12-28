@@ -1,12 +1,12 @@
 
 
 
-export function NotePreview({ note }) {
+export function NotePreview({ note, color }) {
 
 
 
     return (
-        <article className="note-preview">
+        <article style={{ backgroundColor: color }} className="note-preview">
             <DynamicCmp cmpType={note.type} note={note} />
 
         </article>
@@ -35,6 +35,7 @@ function NoteTxt({ note }) {
 }
 function NoteImg({ note }) {
     return <section className="note-img">
+        <h1>{note.info.title}</h1>
         <img src={note.info.url} alt="User Img" />
     </section>
 }
