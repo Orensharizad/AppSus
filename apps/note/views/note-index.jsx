@@ -1,4 +1,5 @@
 import { NoteAdd } from "../cmps/note-add.jsx"
+import { NoteFilter } from "../cmps/note-filter.jsx"
 import { NoteList } from "../cmps/note-list.jsx"
 import { NoteService } from "../services/note.service.js"
 
@@ -7,15 +8,17 @@ const { Link } = ReactRouterDOM
 
 
 export function NoteIndex() {
+    const [filterBy, setFilterBy] = useState(NoteService.getDefaultFilter())
+
 
     const [notes, setNotes] = useState([])
     useEffect(() => {
         loadNotes()
-    }, [])
+    }, [filterBy])
 
 
     function loadNotes() {
-        NoteService.query().then(notes => {
+        NoteService.query(filterBy).then(notes => {
             console.log(notes);
             setNotes(notes)
         })
@@ -39,9 +42,15 @@ export function NoteIndex() {
 
     }
 
+    function onSetFilter(filterByFromFilter) {
+        console.log(filterByFromFilter)
+        setFilterBy(filterByFromFilter)
+    }
+
     if (!notes) return <div>loading...</div>
 
     return <section className="note-index">
+        <NoteFilter onSetFilter={onSetFilter} />
         <NoteAdd onSaveNote={onSaveNote} />
         <NoteList onRemoveNote={onRemoveNote} notes={notes} />
 

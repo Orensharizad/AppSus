@@ -19,10 +19,9 @@ export function NoteList({ notes, onRemoveNote }) {
                 {notes.map(note =>
                     <li key={note.id}>
                         <NotePreview note={note} color={color} />
-                        <button onClick={() => onRemoveNote(note.id)}>Remove</button>
+                        <button onClick={() => onRemoveNote(note.id)}>❌</button>
                         <input type="color"
                             onChange={onSetColor}
-
                         />
                     </li>)}
             </ul>

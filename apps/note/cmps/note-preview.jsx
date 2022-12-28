@@ -23,6 +23,8 @@ function DynamicCmp(props) {
             return <NoteImg {...props} />
         case 'note-todos':
             return <NoteTodos {...props} />
+        case 'note-video':
+            return <NoteVideo {...props} />
     }
 }
 
@@ -47,6 +49,17 @@ function NoteTodos({ note }) {
                 < li key={todo.txt} >
                     {todo.txt}
                 </li>)}
+        </ul>
+    </section >
+}
+function NoteVideo({ note }) {
+    return <section className="note-video">
+        <ul>
+            <h1>vidoe</h1>
+            <iframe
+                src={note.info.src}>
+            </iframe>
+
         </ul>
     </section >
 }

@@ -11,37 +11,29 @@ export const NoteService = {
     get,
     remove,
     save,
-    getEmptyNote
+    getEmptyNote,
+    getDefaultFilter
 }
 
-// function query(filterBy = getDefaultFilter()) {
+function query(filterBy = getDefaultFilter()) {
 
-//     return storageService.query(STORAGE_KEY)
-//         .then(books => {
-//             if (filterBy.txt) {
-//                 const regex = new RegExp(filterBy.txt, 'i')
-//                 books = books.filter(book => regex.test(book.title))
-//             }
-//             if (filterBy.minPrice) {
-//                 books = books.filter(book => book.listPrice.amount >= filterBy.minPrice)
-//             }
-//             if (filterBy.pageCount) {
-//                 books = books.filter(book => book.pageCount <= filterBy.pageCount)
-//             }
-//             if (filterBy.minYear) {
-//                 books = books.filter(book => filterBy.minYear >= utilService.getYearsDistance(book.publishedDate))
-//             }
-
-//             return books
-//         })
-// }
-function query() {
     return storageService.query(NOTE_KEY)
         .then(notes => {
-            console.log('notes:', notes);
+            if (filterBy.type) {
+                const regex = new RegExp(filterBy.type, 'i')
+                notes = notes.filter(note => regex.test(note.type))
+                console.log('type');
+            }
             return notes
         })
 }
+// function query() {
+//     return storageService.query(NOTE_KEY)
+//         .then(notes => {
+//             console.log('notes:', notes);
+//             return notes
+//         })
+// }
 
 function get(noteId) {
     return storageService.get(NOTE_KEY, noteId)
@@ -69,9 +61,9 @@ function getEmptyNote() {
     }
 }
 
-// function getDefaultFilter() {
-//     return { txt: '', minPrice: '', pageCount: '', minYear: '' }
-// }
+function getDefaultFilter() {
+    return { type: '' }
+}
 
 // function getDefaultReview() {
 //     return { fullName: '', rating: 0, readAt: '', id: '' }
@@ -144,8 +136,20 @@ function _createNotes() {
                     { txt: "Driving liscence", doneAt: null },
                     { txt: "Coding power", doneAt: 187111111 }
                 ]
+            },
+        },
+        {
+            id: "n104",
+            type: "note-video",
+            info: {
+                src: "https://www.youtube.com/embed/tgbNymZ7vqY",
+                title: "Bobi and Me"
             }
-        }]
+
+        },
+
+
+        ]
         utilService.saveToStorage(NOTE_KEY, notes)
     }
 }
