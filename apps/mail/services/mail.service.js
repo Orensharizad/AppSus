@@ -1,10 +1,10 @@
-import { utilService } from './util.service.js'
+import {utilService} from './utilService.js'
 import { storageService } from './async-storage.service.js'
 
 const MAIL_KEY = 'mailDB'
 _createMails()
 
-export const MailService = {
+export const mailService = {
     query,
     get,
     remove,
@@ -139,11 +139,6 @@ function _createMails() {
 
         ]
 
-
-        mails.forEach(mail => {
-            mail.price = mail.listPrice.amount
-            mail.reviews = []
-        })
         utilService.saveToStorage(MAIL_KEY, mails)
     }
 }
