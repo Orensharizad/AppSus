@@ -10,41 +10,28 @@ export const mailService = {
     get,
     remove,
     save,
-    getEmptyMail
-   
+    getEmptyMail,
+    getDefaultFilter
+
 }
 
-// function query(filterBy = getDefaultFilter()) {
-
-//     return storageService.query(STORAGE_KEY)
-//         .then(books => {
-//             if (filterBy.txt) {
-//                 const regex = new RegExp(filterBy.txt, 'i')
-//                 books = books.filter(book => regex.test(book.title))
-//             }
-//             if (filterBy.minPrice) {
-//                 books = books.filter(book => book.listPrice.amount >= filterBy.minPrice)
-//             }
-//             if (filterBy.pageCount) {
-//                 books = books.filter(book => book.pageCount <= filterBy.pageCount)
-//             }
-//             if (filterBy.minYear) {
-//                 books = books.filter(book => filterBy.minYear >= utilService.getYearsDistance(book.publishedDate))
-//             }
-
-//             return books
-//         })
-// }
-function query() {
+function query(filterBy = getDefaultFilter()) {
     return storageService.query(MAIL_KEY)
         .then(mails => {
-            console.log('mails:', mails);
+            if (filterBy.txt) {
+                const regex = new RegExp(filterBy.txt, 'i')
+                mails = mails.filter(mail => regex.test(mail.subject))
+            }
             return mails
         })
 }
 
-function getEmptyMail(subject = '', body = '' , to ='') {
-    return { subject, body , to}
+function getDefaultFilter() {
+    return { subject: '' }
+}
+
+function getEmptyMail(subject = '', body = '', to = '') {
+    return { subject, body, to }
 }
 
 function get(mailId) {
@@ -120,7 +107,10 @@ function _createMails() {
             body: 'Would love to catch up sometimes',
             isRead: false,
             sentAt: 1551133930594,
-            to: 'momo@momo.com'
+            removedAt: null,
+            from: 'shuki@momo.com',
+            to: 'user@appsus.com'
+
         },
         {
             id: 'e102',
@@ -128,7 +118,10 @@ function _createMails() {
             body: 'Would love to catch up sometimes',
             isRead: false,
             sentAt: 1551133930594,
-            to: 'momo@momo.com'
+            removedAt: null,
+            from: 'puki@momo.com',
+            to: 'user@appsus.com'
+
         },
         {
             id: 'e103',
@@ -136,7 +129,10 @@ function _createMails() {
             body: 'Would love to catch up sometimes',
             isRead: false,
             sentAt: 1551133930594,
-            to: 'momo@momo.com'
+            removedAt: null,
+            from: 'baba@momo.com',
+            to: 'user@appsus.com'
+
         },
 
         ]
