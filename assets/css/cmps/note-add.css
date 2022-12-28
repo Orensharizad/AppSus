@@ -1,3 +1,9 @@
 .note-add {
     text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid: 1fr 1fr;
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
 }
