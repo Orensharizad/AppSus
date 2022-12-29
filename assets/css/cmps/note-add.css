@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-.note-add {
-    text-align: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid: 1fr 1fr;
-    width: 450px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-=======
 .note-add form {
 
     position: relative;
@@ -75,4 +63,3 @@
     cursor: pointer;
     outline: none;
 }
->>>>>>> cf713b2cec7556775825df084e32674629e4bfa6
