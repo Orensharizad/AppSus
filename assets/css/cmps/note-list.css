@@ -2,9 +2,8 @@
     padding: 15px 0 0;
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    gap: 10px;
 
 }
 
@@ -13,4 +12,27 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+
+.btns-color {
+    width: 20px;
+    margin-right: 4px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+.btns-color:hover {
+    border: 1px solid rgb(74, 74, 74);
+}
+
+.google-colors {
+    /* position: absolute; */
+    /* bottom: 0px; */
+    /* padding: 10px; */
+    background-color: #ada6a6;
+    border: solid 1px #e0e0e0;
+    z-index: 1;
+    display: flex;
 }

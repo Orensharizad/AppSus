@@ -1,15 +1,31 @@
+const { useState, useEffect } = React
+
+
+import { NoteService } from "../services/note.service.js"
+import { NoteColor } from "./note-color.jsx"
 
 
 
-export function NotePreview({ note, color, onRemoveNote, onUpdateNote }) {
+export function NotePreview({ note, onRemoveNote, onUpdateNote, onChangeColor }) {
+    const [expandColors, setExpandColors] = useState(false)
 
+    function onExpandColors() {
+        setExpandColors(!expandColors)
+    }
+    function onSetColor(color) {
+        onChangeColor(color, note.id)
+    }
 
 
     return (
-        <article style={{ backgroundColor: color }} className="note-preview">
+        <article style={note.style} className="note-preview">
             <DynamicCmp cmpType={note.type} note={note} />
-            <button className="btn-remove" onClick={() => onRemoveNote(note.id)}>Delete</button>
-            <button className="btn-update" onClick={() => onUpdateNote(note.id)}>Update</button>
+            <div className="preview-btns">
+                <button className="btn-remove" onClick={() => onRemoveNote(note.id)}>Delete</button>
+                <button className="btn-update" onClick={() => onUpdateNote(note.id)}>Update</button>
+                <button onClick={onExpandColors}><i className="fa-solid fa-palette"></i></button>
+            </div>
+            {expandColors && <NoteColor onSetColor={onSetColor} />}
 
 
         </article>
@@ -32,11 +48,14 @@ function DynamicCmp(props) {
 }
 
 function NoteTxt({ note }) {
+
+    function handleTxtChange(e) {
+        note.info.txt = e.currentTarget.textContent
+        NoteService.save(note)
+    }
     return <section className="note-txt">
-        <pre>{note.info.txt}</pre>
-    </section>
-
-
+        <pre onInput={handleTxtChange} contentEditable={true}>{note.info.txt}</pre>
+    </section >
 }
 function NoteImg({ note }) {
     return <section className="note-img">
@@ -44,17 +63,29 @@ function NoteImg({ note }) {
         <img src={note.info.url} alt="User Img" />
     </section>
 }
+
+
 function NoteTodos({ note }) {
+    const [todoIsDone, setTodoIsDone] = useState(false)
+
+    function onSetTodoIsDone(idx) {
+        setTodoIsDone(!todoIsDone)
+        note.info.todos[idx].isDone = todoIsDone
+    }
+
+
     return <section className="note-todos">
         <ul>
             <h1>{note.info.label}</h1>
-            {note.info.todos.map(todo =>
-                < li key={todo.txt} >
+            {note.info.todos.map((todo, idx) =>
+                < li className={todo.isDone ? 'done' : ''} onClick={() => onSetTodoIsDone(idx)} key={todo.txt} >
                     {todo.txt}
                 </li>)}
         </ul>
     </section >
 }
+
+
 function NoteVideo({ note }) {
     return <section className="note-video">
         <ul>

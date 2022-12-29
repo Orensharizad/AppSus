@@ -3,6 +3,4 @@ export function MailPreview({ mail }) {
         <li> {mail.from} {mail.subject} </li>
     </section>
 
-
-
 }

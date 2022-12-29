@@ -1,13 +1,17 @@
 .note-preview {
     background: #ffffff;
     border-radius: 7px;
-    box-shadow: 0 2px 5px rgb(175, 175, 175);
+    box-shadow: 0 2px 5px rgb(175 175 175);
     padding: 10px;
-    margin: 16px;
-
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.note-preview pre {
+.note-preview pre,
+h1 {
     font-size: 1rem;
     margin-bottom: 6px;
 }
@@ -24,16 +28,27 @@
 
 .note-preview button {
     position: relative;
-    color: #f88651;
+    color: #2f2f2f;
     border: none;
     background: none;
     cursor: pointer;
     outline: none;
+    opacity: 0;
+}
+
+.note-preview:hover button {
+    opacity: 1;
+}
+
+.preview-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
 }
 
 .note-preview iframe {
-    height: 145px;
-    width: 145px;
+    width: 200px;
 }
 
 .note-video ul {
@@ -42,4 +57,13 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+
+.note-img img {
+    height: 150px;
+}
+
+.done {
+    text-decoration: line-through;
+
 }
