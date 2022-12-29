@@ -30,6 +30,7 @@ export function NoteFilter({ onSetFilter }) {
                 <option value="note-txt">txt</option>
                 <option value="note-img">img</option>
                 <option value="note-todos">todos</option>
+                <option value="note-video">video</option>
             </select>
         </section>
     )

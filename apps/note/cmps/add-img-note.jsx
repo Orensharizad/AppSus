@@ -3,21 +3,19 @@ export function AddImgNote({ noteToSave, handleChange }) {
 
         <section className="add-img-note">
             <label >
-                Add title
                 <input type="text"
                     name="title"
                     value={noteToSave.title}
                     onChange={handleChange}
-                    placeholder={noteToSave.type}
+                    placeholder='Title'
                 />
             </label>
             <label >
-                Add url
                 <input type="text"
                     name="url"
                     value={noteToSave.url}
                     onChange={handleChange}
-                    placeholder={noteToSave.type}
+                    placeholder='add some URL ...'
                 />
             </label>
 

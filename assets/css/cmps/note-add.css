@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .note-add {
     text-align: center;
     display: grid;
@@ -8,3 +9,70 @@
     margin-right: auto;
 }
 
+=======
+.note-add form {
+
+    position: relative;
+    width: 600px;
+    margin: 32px auto 50px auto;
+    background: #fff;
+    padding: 7px;
+    border-radius: 7px;
+    box-shadow: 0 1px 7px rgb(128, 128, 128);
+
+}
+
+.note-add form input {
+
+    width: 100%;
+    border: none;
+    margin-bottom: 20px;
+    outline: none;
+    font-size: 1rem;
+    resize: none;
+
+}
+
+.note-add textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    resize: none;
+
+}
+
+
+
+.form-btns button {
+    justify-content: center;
+    align-items: center;
+    background: rgb(255, 200, 18);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    box-shadow: 0 1px 3px rgb(165, 165, 165);
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-add {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 18px;
+    bottom: -18px;
+    background: rgb(255, 200, 18);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    box-shadow: 0 1px 3px rgb(165, 165, 165);
+    cursor: pointer;
+    outline: none;
+}
+>>>>>>> cf713b2cec7556775825df084e32674629e4bfa6

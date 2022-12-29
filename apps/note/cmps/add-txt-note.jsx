@@ -2,17 +2,14 @@ export function AddTxtNote({ noteToSave, handleChange }) {
     return (
 
         <section className="add-txt-note">
-
-            <label >
-                Add text
-                <input type="text"
-                    name="txt"
+            <p>
+                <textarea
                     value={noteToSave.txt}
+                    name="txt"
+                    placeholder="Take a note..."
                     onChange={handleChange}
-                    placeholder={noteToSave.type}
-                />
-            </label>
-
+                ></textarea>
+            </p>
 
         </section>
 

@@ -1,13 +1,16 @@
 
 
 
-export function NotePreview({ note, color }) {
+export function NotePreview({ note, color, onRemoveNote, onUpdateNote }) {
 
 
 
     return (
         <article style={{ backgroundColor: color }} className="note-preview">
             <DynamicCmp cmpType={note.type} note={note} />
+            <button className="btn-remove" onClick={() => onRemoveNote(note.id)}>Delete</button>
+            <button className="btn-update" onClick={() => onUpdateNote(note.id)}>Update</button>
+
 
         </article>
 
@@ -30,7 +33,7 @@ function DynamicCmp(props) {
 
 function NoteTxt({ note }) {
     return <section className="note-txt">
-        <h1>{note.info.txt}</h1>
+        <pre>{note.info.txt}</pre>
     </section>
 
 
