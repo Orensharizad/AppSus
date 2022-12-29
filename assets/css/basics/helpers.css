@@ -21,3 +21,9 @@
 .grid {
     display: grid;
 }
+
+.main-layout {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1020px;
+}
