@@ -40,11 +40,12 @@ export function NoteIndex() {
     }
 
     function onSaveNote(noteToSave) {
-        noteToSave.id = (noteIdToUpdate) ? noteIdToUpdate : ''
+        noteToSave.id = (noteIdToUpdate) ? noteIdToUpdate : null
         NoteService.save(noteToSave).then((note) => {
             setNotes([...notes, note])
             setIsExpend(false)
             loadNotes()
+            setNoteIdToUpdate(null)
         })
 
     }
@@ -58,7 +59,11 @@ export function NoteIndex() {
         setIsExpend(!isExpend)
         setNoteIdToUpdate(noteId)
     }
+    function onCancelUpdate() {
+        setIsExpend(false)
+        setNoteIdToUpdate(null)
 
+    }
 
 
 
@@ -67,9 +72,8 @@ export function NoteIndex() {
 
     return <section className="note-index">
         {isExpend && <section>
-            <NoteUpdate onSaveNote={onSaveNote} noteIdToUpdate={noteIdToUpdate} />
+            <NoteUpdate onCancelUpdate={onCancelUpdate} onSaveNote={onSaveNote} noteIdToUpdate={noteIdToUpdate} />
             <div onClick={() => setIsExpend(false)} className="black-screen"></div>
-
         </section>
         }
         <NoteFilter onSetFilter={onSetFilter} />

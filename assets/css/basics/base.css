@@ -20,22 +20,4 @@ img {
     height: 100%;
     width: 100%;
     object-fit: cover;
-<<<<<<< HEAD
-}
-
-
-iframe {
-    width: 100%;
-    height: 100%;
-}
-
-
-.read-mode {
-    background-color: aqua;
-}
-
-.unread-mode {
-    background-color: blue;
-=======
->>>>>>> cf713b2cec7556775825df084e32674629e4bfa6
 }
