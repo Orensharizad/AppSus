@@ -27,3 +27,12 @@ iframe {
     width: 100%;
     height: 100%;
 }
+
+
+.read-mode {
+    background-color: aqua;
+}
+
+.unread-mode {
+    background-color: blue;
+}

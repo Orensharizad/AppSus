@@ -50,87 +50,39 @@ function save(mail) {
     }
 }
 
-// function getEmptyBook(title = '', price = '') {
-//     return { title: '', price: '' }
-// }
-
-// function getDefaultFilter() {
-//     return { txt: '', minPrice: '', pageCount: '', minYear: '' }
-// }
-
-// function getDefaultReview() {
-//     return { fullName: '', rating: 0, readAt: '', id: '' }
-// }
-
-
-// function saveReview(bookId, reviewToSave) {
-//     const books = _loadBooksFromStorage()
-//     const book = books.find((book) => book.id === bookId)
-//     const review = _createReview(reviewToSave)
-//     book.reviews.unshift(review)
-//     _saveBooksToStorage(books)
-//     return Promise.resolve(review)
-// }
-
-// function removeReview(bookId, reviewId) {
-//     let books = _loadBooksFromStorage()
-//     let book = books.find((book) => book.id === bookId)
-//     const newReviews = book.reviews.filter((review) => review.id !== reviewId)
-//     book.reviews = newReviews
-//     _saveBooksToStorage(books)
-//     return Promise.resolve()
-// }
-
-// function _createReview(reviewToSave) {
-//     return {
-//         id: utilService.makeId(),
-//         ...reviewToSave,
-//     }
-// }
-
-
-// function _saveBooksToStorage(books) {
-//     storageService.saveToStorage(MAIL_KEY, books)
-// }
-
-// function _loadBooksFromStorage() {
-//     return storageService.loadFromStorage(MAIL_KEY)
-// }
-
-
 function _createMails() {
     let mails = utilService.loadFromStorage(MAIL_KEY)
     if (!mails || !mails.length) {
         mails = [{
             id: 'e101',
-            subject: 'Miss you!',
-            body: 'Would love to catch up sometimes',
+            subject: 'Sale',
+            body: 'Would love to catch up sometimes 111111111111111111',
             isRead: false,
             sentAt: 1551133930594,
             removedAt: null,
-            from: 'shuki@momo.com',
+            from: 'Daniel',
             to: 'user@appsus.com'
 
         },
         {
             id: 'e102',
-            subject: 'Miss you!',
-            body: 'Would love to catch up sometimes',
+            subject: 'Job alert',
+            body: 'Would love to catch up sometimes 222222222222222',
             isRead: false,
             sentAt: 1551133930594,
             removedAt: null,
-            from: 'puki@momo.com',
+            from: 'Oren',
             to: 'user@appsus.com'
 
         },
         {
             id: 'e103',
-            subject: 'Miss you!',
-            body: 'Would love to catch up sometimes',
+            subject: 'Sale',
+            body: 'Would love to catch up sometimes 3333333333333333',
             isRead: false,
             sentAt: 1551133930594,
             removedAt: null,
-            from: 'baba@momo.com',
+            from: 'David',
             to: 'user@appsus.com'
 
         },

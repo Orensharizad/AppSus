@@ -22,11 +22,7 @@ export function MailEdit() {
         ev.preventDefault()
         mailService.save(mailToEdit)
         navigate('/mail')
-
-
-
     }
-
 
     return (
         <section className="note-add">
@@ -37,7 +33,6 @@ export function MailEdit() {
                         name="from"
                         value={mailToEdit.from}
                         onChange={handleChange}
-                        
                     />
                 </label>
                 <label >
@@ -58,7 +53,6 @@ export function MailEdit() {
                 </label>
                 <button>Add</button>
             </form>
-
         </section>
     )
 }

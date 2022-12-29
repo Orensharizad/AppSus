@@ -24,17 +24,15 @@ export function MailFilter({ onSetFilter }) {
     }
 
     return <section className="mail-filter">
-        <h1>filter our emails</h1>
-        <form onSubmit={onSubmitFilter}>
-            <label htmlFor="subject">Subject:</label>
+        <form className='search-container' onSubmit={onSubmitFilter}>
+            <label htmlFor="subject"></label>
             <input type="text"
                 id="subject"
                 name="txt"
-                placeholder="By subject"
+                placeholder="type here to search"
                 value={filterByToEdit.txt}
                 onChange={handleChange}
             />
-            <button>Filter mails</button>
         </form>
     </section>
 }

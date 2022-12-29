@@ -13,11 +13,11 @@ export function MailIndex() {
 
     useEffect(() => {
         loadMails()
-    }, [filterBy])
+    }, [filterBy] )
 
     function loadMails() {
         mailService.query(filterBy).then(mailsToUpdate => {
-            // console.log('mailsToUpdate:', mailsToUpdate);
+            console.log('mailsToUpdate:', mailsToUpdate);
             setMails(mailsToUpdate)
         })
     }
@@ -41,7 +41,7 @@ export function MailIndex() {
             const updatedMail = mail
             updatedMail.isRead = true
             setSelectedMail(updatedMail)
-            // console.log('updatedMail:', updatedMail);
+            console.log('updatedMail:', updatedMail , updatedMail.id);
 
         })
     }
