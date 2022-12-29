@@ -1,9 +1,7 @@
 import { NoteAdd } from "./note-add.jsx";
 
-export function NoteUpdate({ onSaveNote, onCancelUpdate }) {
+export function NoteUpdate({ onSaveNote }) {
     return <section className="note-update">
         <NoteAdd onSaveNote={onSaveNote} />
-        <button onClick={onCancelUpdate} >❌</button>
-
     </section>
 }

@@ -12,7 +12,8 @@ export const NoteService = {
     remove,
     save,
     getEmptyNote,
-    getDefaultFilter
+    getDefaultFilter,
+    getGoogleNotesColors
 }
 
 function query(filterBy = getDefaultFilter()) {
@@ -108,48 +109,97 @@ function getDefaultFilter() {
 function _createNotes() {
     let notes = utilService.loadFromStorage(NOTE_KEY)
     if (!notes || !notes.length) {
-        notes = [{
-            id: "n101",
-            type: "note-txt",
-            isPinned: true,
-            info: {
-                txt: "Fullstack Me Baby!"
-            }
-        },
-        {
-            id: "n102",
-            type: "note-img",
-            info: {
-                url: "http://coding-academy.org/books-photos/20.jpg",
-                title: "Bobi and Me"
-            },
-            style: {
-                backgroundColor: "#00d"
-            }
-        },
-        {
-            id: "n103",
-            type: "note-todos",
-            info: {
-                label: "Get my stuff together",
-                todos: [
-                    { txt: "Driving liscence", doneAt: null },
-                    { txt: "Coding power", doneAt: 187111111 }
-                ]
-            },
-        },
-        {
-            id: "n104",
-            type: "note-video",
-            info: {
-                src: "https://www.youtube.com/embed/tgbNymZ7vqY",
-                title: "Bobi and Me"
-            }
+        notes = [
+            {
+                id: "n101",
+                type: "note-txt",
+                isPinned: true,
+                info: {
+                    txt: "Fullstack Me Baby!"
+                },
+                style: {
+                    backgroundColor: 'rgb(253 207 232)'
+                }
 
-        },
+            },
+            {
+                id: "n101",
+                type: "note-txt",
+                isPinned: true,
+                info: {
+                    txt: "i need to go to the doctor"
+                },
+                style: {
+                    backgroundColor: 'rgb(251 188 4)'
+                }
+
+            },
+            {
+                id: "n103",
+                type: "note-todos",
+                info: {
+                    label: "Get my stuff together",
+                    todos: [
+                        { txt: "Driving liscence", doneAt: null },
+                        { txt: "Coding power", doneAt: 187111111 }
+                    ]
+                },
+                style: {
+                    backgroundColor: 'rgb(215 174 251)'
+                }
+            },
+            {
+                id: "n102",
+                type: "note-img",
+                info: {
+                    url: "http://coding-academy.org/books-photos/20.jpg",
+                    title: "My Fav Book"
+                },
+                style: {
+                    backgroundColor: 'rgb(242 139 130)'
+                }
+            },
+
+            {
+                id: "n104",
+                type: "note-video",
+                info: {
+                    src: "https://www.youtube.com/embed/tgbNymZ7vqY",
+                    title: "My Fav Song"
+                },
+                style: {
+                    backgroundColor: 'rgb(230 201 168)'
+                }
+
+            },
+            {
+                id: "n103",
+                type: "note-todos",
+                info: {
+                    label: "Get my stuff together",
+                    todos: [
+                        { txt: "Sprint 1", doneAt: null, isDone: true },
+                        { txt: "Sprint 2", doneAt: null, isDone: true },
+                        { txt: "Sprint 3", doneAt: null, isDone: false },
+                        { txt: "Sprint 4", doneAt: null, isDone: false },
+
+                    ]
+                },
+                style: {
+                    backgroundColor: 'rgb(204 255 144)'
+                }
+            },
 
 
         ]
         utilService.saveToStorage(NOTE_KEY, notes)
     }
+}
+
+
+function getGoogleNotesColors() {
+    console.log('colors');
+    return ['rgb(242 139 130)', 'rgb(251 188 4)', 'rgb(255 244 117)',
+        'rgb(204 255 144)', 'rgb(167 255 235)', 'rgb(203 240 248)', 'rgb(174 203 250)',
+        'rgb(215 174 251)', 'rgb(253 207 232)', 'rgb(230 201 168)', 'rgb(232 234 237)', 'rgb(255 255 255)']
 }
