@@ -1,8 +1,6 @@
 
 .li-preview {
     background-color: rgb(211, 204, 195);
-    /* display: grid; */
-    /* grid-template-columns: 33% 33% 33%; */
     height: 45px;
     padding: 10px;
     align-items: center;
