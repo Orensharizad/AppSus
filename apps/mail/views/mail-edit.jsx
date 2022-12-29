@@ -18,7 +18,6 @@ export function MailEdit() {
     }
 
     function onSaveMail(ev, mailToEdit) {
-
         ev.preventDefault()
         mailService.save(mailToEdit)
         navigate('/mail')
@@ -31,7 +30,7 @@ export function MailEdit() {
                 from
                     <input type="text"
                         name="from"
-                        value={mailToEdit.from}
+                        value={mailToEdit.from='x'}
                         onChange={handleChange}
                     />
                 </label>
@@ -52,6 +51,7 @@ export function MailEdit() {
                     />
                 </label>
                 <button>Add</button>
+                <Link className='cancel-link' to="/mail">Cancel</Link>
             </form>
         </section>
     )

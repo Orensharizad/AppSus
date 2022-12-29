@@ -24,6 +24,8 @@ export function MailIndex() {
 
     function onSetFilter(filterByFromFilter) {
         setFilterBy(filterByFromFilter)
+        console.log('filterByFromFilter', filterByFromFilter);
+        
     }
 
     function onRemoveMail(mailId){
@@ -41,14 +43,23 @@ export function MailIndex() {
             const updatedMail = mail
             updatedMail.isRead = true
             setSelectedMail(updatedMail)
-            console.log('updatedMail:', updatedMail , updatedMail.id);
-
+            // console.log('updatedMail:', updatedMail , updatedMail.id);
         })
+    }
+
+    function onStared(mailId){
+        console.log('mailId:', mailId);
+        mailService.get(mailId).then((mail) => {
+            const updatedMail = mail
+            updatedMail.isStared = true
+            setSelectedMail(updatedMail)
+            console.log('updatedMail:', updatedMail , updatedMail.id);
+        })   
     }
 
     return (<section className="mail-index ">
         <MailFilter onSetFilter={onSetFilter} />
-        <MailList mails={mails} onSelectMail={onSelectMail} onRemoveMail = {onRemoveMail} />
+        <MailList mails={mails} onSelectMail={onSelectMail} onRemoveMail = {onRemoveMail} onSetFilter={onSetFilter} onStared={onStared} />
 
         {selectedMail &&  <MailDetails
         mail = {selectedMail}

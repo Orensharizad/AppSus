@@ -1,9 +1,9 @@
 
 
 export function MailDetails ({mail}) {
-
-return <section>
+return <section className ='mail-details'   >
 <h1>{mail.id}</h1>
-{mail.body}
+<p>Message: {mail.body} </p>
+<p>Sent to:{mail.to}</p>
 </section>
 }

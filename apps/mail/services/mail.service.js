@@ -22,6 +22,10 @@ function query(filterBy = getDefaultFilter()) {
                 const regex = new RegExp(filterBy.txt, 'i')
                 mails = mails.filter(mail => regex.test(mail.subject))
             }
+            if (filterBy.from) {
+                const regex = new RegExp(filterBy.from, 'i')
+                mails = mails.filter(mail => regex.test(mail.from))
+            }
             return mails
         })
 }
@@ -58,6 +62,7 @@ function _createMails() {
             subject: 'Sale',
             body: 'Would love to catch up sometimes 111111111111111111',
             isRead: false,
+            isStared:false,
             sentAt: 1551133930594,
             removedAt: null,
             from: 'Daniel',
@@ -69,6 +74,7 @@ function _createMails() {
             subject: 'Job alert',
             body: 'Would love to catch up sometimes 222222222222222',
             isRead: false,
+            isStared:false,
             sentAt: 1551133930594,
             removedAt: null,
             from: 'Oren',
@@ -80,13 +86,61 @@ function _createMails() {
             subject: 'Sale',
             body: 'Would love to catch up sometimes 3333333333333333',
             isRead: false,
+            isStared:false,
             sentAt: 1551133930594,
             removedAt: null,
             from: 'David',
             to: 'user@appsus.com'
 
         },
+        {
+            id: 'e104',
+            subject: 'Sale',
+            body: 'Would love to catch up sometimes 3333333333333333',
+            isRead: false,
+            isStared:false,
+            sentAt: 1551133930594,
+            removedAt: null,
+            from: 'Google',
+            to: 'user@appsus.com'
 
+        },
+        {
+            id: 'e105',
+            subject: 'Sale',
+            body: 'Would love to catch up sometimes 3333333333333333',
+            isRead: false,
+            isStared:false,
+            sentAt: 1551133930594,
+            removedAt: null,
+            from: 'YouTube',
+            to: 'user@appsus.com'
+
+        },
+        {
+            id: 'e106',
+            subject: 'Sale',
+            body: 'Would love to catch up sometimes 3333333333333333',
+            isRead: false,
+            isStared:false,
+            sentAt: 1551133930594,
+            removedAt: null,
+            from: 'David',
+            to: 'user@appsus.com'
+
+        },
+        {
+            id: 'e107',
+            subject: 'Sale',
+            body: 'Would love to catch up sometimes 3333333333333333',
+            isRead: false,
+            isStared:false,
+            sentAt: 1551133930594,
+            removedAt: null,
+            from: 'David',
+            to: 'user@appsus.com'
+
+        },
         ]
 
         utilService.saveToStorage(MAIL_KEY, mails)
