@@ -6,7 +6,7 @@ import { NoteColor } from "./note-color.jsx"
 
 
 
-export function NotePreview({ note, onRemoveNote, onUpdateNote, onChangeColor }) {
+export function NotePreview({ note, idx, onRemoveNote, onUpdateNote, onChangeColor, onPinNote }) {
     const [expandColors, setExpandColors] = useState(false)
 
     function onExpandColors() {
@@ -19,6 +19,7 @@ export function NotePreview({ note, onRemoveNote, onUpdateNote, onChangeColor })
 
     return (
         <article style={note.style} className="note-preview">
+            <button onClick={() => onPinNote(note, idx)}><i className="fa-solid fa-thumbtack"></i></button>
             <DynamicCmp cmpType={note.type} note={note} />
             <div className="preview-btns">
                 <button className="btn-remove" onClick={() => onRemoveNote(note.id)}>Delete</button>

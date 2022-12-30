@@ -1,9 +1,9 @@
 .note-list {
     padding: 15px 0 0;
+    gap: 15px;
     list-style: none;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-    gap: 10px;
 
 }
 
@@ -35,4 +35,12 @@
     border: solid 1px #e0e0e0;
     z-index: 1;
     display: flex;
+}
+
+.note-pinned {
+    text-align: center;
+}
+
+.notes {
+    text-align: center;
 }

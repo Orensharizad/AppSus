@@ -1,6 +1,5 @@
 export function AddTodoNote({ noteToSave, handleChange }) {
     return (
-
         <section className="add-txt-note">
             <label >
                 <input type="text"
@@ -13,11 +12,20 @@ export function AddTodoNote({ noteToSave, handleChange }) {
             <label >
                 <input type="text"
                     name="todos"
-                    value={noteToSave.todos}
+                    value={noteToSave.label}
                     onChange={handleChange}
-                    placeholder='add some todo ...'
+                    placeholder='todo ..'
                 />
             </label>
+            <label >
+                <input type="text"
+                    name="todos"
+                    value={noteToSave.label}
+                    onChange={handleChange}
+                    placeholder='todo ..'
+                />
+            </label>
+
 
         </section>
 
