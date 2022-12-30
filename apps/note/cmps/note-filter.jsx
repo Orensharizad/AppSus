@@ -15,7 +15,6 @@ export function NoteFilter({ onSetFilter }) {
 
     function handleChange({ target }) {
         let { value, name: field, type } = target
-
         setFilterByToEdit((prevFilter) => {
             return { ...prevFilter, [field]: value }
         })
@@ -25,7 +24,7 @@ export function NoteFilter({ onSetFilter }) {
     return (
 
         <section className="note-filter">
-            <select name="type" id="type" type='text' onChange={handleChange}>
+            <select name="type" type='text' onChange={handleChange}>
                 <option value="">All</option>
                 <option value="note-txt">txt</option>
                 <option value="note-img">img</option>

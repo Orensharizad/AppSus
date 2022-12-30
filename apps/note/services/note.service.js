@@ -21,20 +21,15 @@ function query(filterBy = getDefaultFilter()) {
     return storageService.query(NOTE_KEY)
         .then(notes => {
             if (filterBy.type) {
+                console.log('test 2')
                 const regex = new RegExp(filterBy.type, 'i')
                 notes = notes.filter(note => regex.test(note.type))
-                console.log('type');
             }
+
             return notes
         })
 }
-// function query() {
-//     return storageService.query(NOTE_KEY)
-//         .then(notes => {
-//             console.log('notes:', notes);
-//             return notes
-//         })
-// }
+
 
 function get(noteId) {
     return storageService.get(NOTE_KEY, noteId)
@@ -66,44 +61,6 @@ function getDefaultFilter() {
     return { type: '' }
 }
 
-// function getDefaultReview() {
-//     return { fullName: '', rating: 0, readAt: '', id: '' }
-// }
-
-
-// function saveReview(bookId, reviewToSave) {
-//     const books = _loadBooksFromStorage()
-//     const book = books.find((book) => book.id === bookId)
-//     const review = _createReview(reviewToSave)
-//     book.reviews.unshift(review)
-//     _saveBooksToStorage(books)
-//     return Promise.resolve(review)
-// }
-
-// function removeReview(bookId, reviewId) {
-//     let books = _loadBooksFromStorage()
-//     let book = books.find((book) => book.id === bookId)
-//     const newReviews = book.reviews.filter((review) => review.id !== reviewId)
-//     book.reviews = newReviews
-//     _saveBooksToStorage(books)
-//     return Promise.resolve()
-// }
-
-// function _createReview(reviewToSave) {
-//     return {
-//         id: utilService.makeId(),
-//         ...reviewToSave,
-//     }
-// }
-
-
-// function _saveBooksToStorage(books) {
-//     storageService.saveToStorage(MAIL_KEY, books)
-// }
-
-// function _loadBooksFromStorage() {
-//     return storageService.loadFromStorage(MAIL_KEY)
-// }
 
 
 function _createNotes() {
@@ -123,7 +80,7 @@ function _createNotes() {
 
             },
             {
-                id: "n101",
+                id: "n102",
                 type: "note-txt",
                 isPinned: true,
                 info: {
@@ -149,7 +106,7 @@ function _createNotes() {
                 }
             },
             {
-                id: "n102",
+                id: "n104",
                 type: "note-img",
                 info: {
                     url: "http://coding-academy.org/books-photos/20.jpg",
@@ -161,7 +118,7 @@ function _createNotes() {
             },
 
             {
-                id: "n104",
+                id: "n105",
                 type: "note-video",
                 info: {
                     src: "https://www.youtube.com/embed/tgbNymZ7vqY",
@@ -173,7 +130,7 @@ function _createNotes() {
 
             },
             {
-                id: "n103",
+                id: "n106",
                 type: "note-todos",
                 info: {
                     label: "Get my stuff together",

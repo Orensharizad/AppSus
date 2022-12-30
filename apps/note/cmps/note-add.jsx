@@ -18,15 +18,19 @@ export function NoteAdd({ onSaveNote }) {
 
     function handleChange({ target }) {
         let { value, name: field } = target
-        if (field === 'todos' && noteToSave.info.todos) setNoteToSave((prevNote) => ({
-            ...prevNote, info: { ...prevNote.info, todos: [{ txt: value }] }
-        }))
+
+        if (field === 'todos') {
+            setNoteToSave((prevNote) => ({
+                ...prevNote, info: { ...prevNote.info, todos: [{ txt: value }] }
+            }))
+        }
 
         else setNoteToSave((prevNote) => ({ ...prevNote, info: { ...prevNote.info, [field]: value } }))
 
     }
 
     function onChangeType(type) {
+        console.log(type)
         setNoteToSave((prevNote) => ({ ...prevNote, type: type }))
         setType(type)
     }

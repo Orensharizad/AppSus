@@ -1,0 +1,44 @@
+.note-index {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    grid-template-areas:
+        "aside main-content";
+}
+
+.main-content {
+    grid-area: main-content;
+}
+
+.aside {
+    grid-area: aside;
+}
+
+.note-aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 50vh;
+    /* margin: 32px auto 50px auto; */
+
+
+
+}
+
+.note-aside button {
+    min-width: 259px;
+    max-width: 259px;
+    height: 70px;
+    padding-left: 100px;
+    font-size: 30px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    text-align: start;
+
+}
+
+.note-aside button:hover {
+    background-color: rgb(255, 200, 18);
+}
