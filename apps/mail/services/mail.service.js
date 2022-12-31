@@ -27,10 +27,10 @@ function query(filterBy = getDefaultFilter()) {
                 console.log(mails)
 
             }
-            // if (filterBy.isStared) {
-            //     console.log('hi from if is stared:');
-            //     mails = mails.filter(mail =>mail.isStared === filterBy.isStared)
-            // }
+            if (filterBy.isStared) {
+                console.log('hi from if is stared:');
+                mails = mails.filter(mail =>mail.isStared)
+            }
 
             return mails
         })
@@ -68,7 +68,7 @@ function _createMails() {
             subject: 'job alert',
             body: 'מבצע סוף שנה במטמון - בהזדמנות אחרונה | שובר לרשת FOOD APPEAL | מצלמת רכב מ-119 ₪ | תנורים, ביגוד תרמי ושמיכות לחורף | מבצעי רכב בטריידמול ועוד',
             isRead: false,
-            isStared: false,
+            isStared: true,
             sentAt: 1551133930594,
             removedAt: null,
             from: 'hever',

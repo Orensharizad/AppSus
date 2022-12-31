@@ -51,8 +51,9 @@ export function MailIndex() {
         console.log('mailId:', mailId);
         mailService.get(mailId).then((mail) => {
             const updatedMail = mail
-            updatedMail.isStared = true
+            updatedMail.isStared = !updatedMail.isStared
             setSelectedMail(updatedMail)
+            mailService.save(updatedMail).then(loadMails)
             console.log('updatedMail:', updatedMail , updatedMail.id);
         })   
     }

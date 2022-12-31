@@ -7,7 +7,7 @@ export function MailList({ mails, onSelectMail, onRemoveMail, onSetFilter, onSta
     return <div className="mail-container">
         <div className="buttons-container">
 
-            <Link className="link-edit" to={`/mail/edit/`}> Send mail</Link>
+            <Link className="link-edit" to={`/mail/edit/`}> Compose</Link>
             <button className='sent-button' onClick={() => onSetFilter({ from: 'x' })}>Sent</button>
             <button className='stard-button' onClick={() => onSetFilter({ isStared: true })}>Stared</button>
         </div>

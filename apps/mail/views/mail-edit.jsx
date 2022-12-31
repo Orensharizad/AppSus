@@ -50,8 +50,8 @@ export function MailEdit() {
                         onChange={handleChange}
                     />
                 </label>
-                <button>Add</button>
-                <Link className='cancel-link' to="/mail">Cancel</Link>
+                <button className="fa fa-paper-plane-o"></button>
+                <Link class="fa fa-trash-o" to="/mail"></Link>
             </form>
         </section>
     )
