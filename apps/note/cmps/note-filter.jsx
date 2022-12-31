@@ -23,8 +23,8 @@ export function NoteFilter({ onSetFilter }) {
 
     return (
 
-        <section className="note-filter">
-            <select name="type" type='text' onChange={handleChange}>
+        <section className="note-filter main-layout">
+            <select className="note-filter-select" name="type" type='text' onChange={handleChange}>
                 <option value="">All</option>
                 <option value="note-txt">txt</option>
                 <option value="note-img">img</option>

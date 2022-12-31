@@ -1,15 +1,14 @@
 import { NoteAdd } from "../cmps/note-add.jsx"
-import { NoteFilter } from "../cmps/note-filter.jsx"
 import { NoteList } from "../cmps/note-list.jsx"
 import { NoteService } from "../services/note.service.js"
-import { eventBusService, showSuccessMsg } from '../../../services/event-bus.service.js'
+import { eventBusService, showSuccessMsg } from '../services/event-bus.service.js'
 import { NoteUpdate } from "../cmps/note-update.jsx"
-import { NoteColor } from "../cmps/note-color.jsx"
-import { utilService } from "../../../services/util.service.js"
 import { NoteAside } from '../cmps/note-aside.jsx'
+import { UserMsg } from "../../../cmps/user-msg.jsx"
+import { NoteFilter } from "../cmps/note-filter.jsx"
+
 
 const { useState, useEffect } = React
-const { Link } = ReactRouterDOM
 
 
 export function NoteIndex() {
@@ -26,7 +25,7 @@ export function NoteIndex() {
     function loadNotes() {
         NoteService.query(filterBy).then(notes => {
             setNotesPinned(notes.filter(note => note.isPinned))
-            setNotes(notes.filter(note => !note.isPinned))
+            setNotes(notes.filter(note => note && !note.isPinned))
         })
     }
 
@@ -35,11 +34,13 @@ export function NoteIndex() {
             .then(() => {
                 const updatedNotes = notes.filter(note => note.id !== noteId)
                 setNotes(updatedNotes)
-
+                loadNotes()
             })
             .catch((err) => {
                 console.log('Had issues removing', err)
             })
+        showSuccessMsg('Note Removed ')
+
 
     }
 
@@ -49,6 +50,7 @@ export function NoteIndex() {
             loadNotes()
             setIsExpend(false)
             setNoteIdToUpdate(null)
+            showSuccessMsg('Note Saved ')
         })
 
 
@@ -79,18 +81,30 @@ export function NoteIndex() {
     }
 
     function onPinNote(note, idx) {
-        note.isPinned = true
+        note.isPinned = note.isPinned ? false : true
         NoteService.save(note).then(loadNotes)
+        showSuccessMsg('Note Pinned ')
+
     }
 
+    function onArchiveNote(note) {
+        note.isArchive = note.isArchive ? false : true
+        NoteService.save(note).then(loadNotes)
+        showSuccessMsg('Note Archived ')
+    }
 
+    function onRemindNote(note) {
+        note.isRemind = note.isRemind ? false : true
+        NoteService.save(note).then(loadNotes)
+        showSuccessMsg('Note Reminded ')
+    }
 
 
     // if (!notes) return <div>loading...</div>
 
-    return <section className="note-index">
+    return <section className="note-index ">
         <div className="aside">
-            <NoteAside />
+            <NoteAside onSetFilter={onSetFilter} />
         </div>
         <div className="main-content">
             {isExpend && <section>
@@ -98,11 +112,13 @@ export function NoteIndex() {
                 <div onClick={onCancelUpdate} className="black-screen"></div>
             </section>
             }
-            {/* <NoteFilter onSetFilter={onSetFilter} /> */}
             <NoteAdd onSaveNote={onSaveNote} />
+            <NoteFilter onSetFilter={onSetFilter} />
 
-            <NoteList onPinNote={onPinNote} onChangeColor={onChangeColor} onUpdateNote={onUpdateNote} onRemoveNote={onRemoveNote} notes={notes} notesPinned={notesPinned} />
+            <NoteList onPinNote={onPinNote} onChangeColor={onChangeColor} onUpdateNote={onUpdateNote} onRemoveNote={onRemoveNote} notes={notes} notesPinned={notesPinned} onArchiveNote={onArchiveNote} onRemindNote={onRemindNote} />
         </div>
+
+        <UserMsg />
 
     </section>
 

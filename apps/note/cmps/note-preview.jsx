@@ -6,7 +6,7 @@ import { NoteColor } from "./note-color.jsx"
 
 
 
-export function NotePreview({ note, idx, onRemoveNote, onUpdateNote, onChangeColor, onPinNote }) {
+export function NotePreview({ note, idx, onRemoveNote, onUpdateNote, onChangeColor, onPinNote, onArchiveNote, onRemindNote }) {
     const [expandColors, setExpandColors] = useState(false)
 
     function onExpandColors() {
@@ -19,17 +19,19 @@ export function NotePreview({ note, idx, onRemoveNote, onUpdateNote, onChangeCol
 
     return (
         <article style={note.style} className="note-preview">
-            <button onClick={() => onPinNote(note, idx)}><i className="fa-solid fa-thumbtack"></i></button>
+            <button title="Pin Note" onClick={() => onPinNote(note, idx)}><i className="fa-solid fa-thumbtack"></i></button>
             <DynamicCmp cmpType={note.type} note={note} />
             <div className="preview-btns">
-                <button className="btn-remove" onClick={() => onRemoveNote(note.id)}>Delete</button>
-                <button className="btn-update" onClick={() => onUpdateNote(note.id)}>Update</button>
-                <button onClick={onExpandColors}><i className="fa-solid fa-palette"></i></button>
+                <button title="Delete" className="btn-remove" onClick={() => onRemoveNote(note.id)}><i className="fa-solid fa-trash"></i></button>
+                <button title="Update" className="btn-update" onClick={() => onUpdateNote(note.id)}><i className="fa-solid fa-pen-to-square"></i></button>
+                <button title="Note Color" onClick={onExpandColors}><i className="fa-solid fa-palette"></i></button>
+                <button title="Remaind Me Later" onClick={() => onRemindNote(note)} ><i className="fa-solid fa-bell"></i></button>
+                <button title="Archive" onClick={() => onArchiveNote(note)}><i className="fa-solid fa-box-archive"></i></button>
             </div>
+
             {expandColors && <NoteColor onSetColor={onSetColor} />}
 
-
-        </article>
+        </article >
 
     )
 
@@ -55,7 +57,8 @@ function NoteTxt({ note }) {
         NoteService.save(note)
     }
     return <section className="note-txt">
-        <pre onInput={handleTxtChange} contentEditable={true}>{note.info.txt}</pre>
+        <h1>{note.info.title}</h1>
+        <pre onInput={handleTxtChange} contentEditable={true} >{note.info.txt}</pre>
     </section >
 }
 function NoteImg({ note }) {
