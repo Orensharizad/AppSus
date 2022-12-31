@@ -18,7 +18,7 @@ export function AppHeader() {
             </div>
         </header>
         {onOpenMenu && <div className="menu-open">
-            <AppNavLink />
+            <AppNavLink setOnMenuOpen={setOnMenuOpen} />
         </div>}
     </section>
 }

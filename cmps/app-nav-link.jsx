@@ -2,7 +2,7 @@
 const { Link, NavLink } = ReactRouterDOM
 
 
-export function AppNavLink() {
+export function AppNavLink({ setOnMenuOpen }) {
 
 
 
@@ -11,18 +11,17 @@ export function AppNavLink() {
         <div className="app-nav-link">
 
             <NavLink to="/mail">
-                <img className="nav-item" src="assets/img/Gmail_icon_(2020).svg.png" alt="" />
+                <img onClick={() => setOnMenuOpen(false)} className="nav-item" src="assets/img/Gmail_icon_(2020).svg.png" alt="" />
             </NavLink>
             <NavLink to="/note">
-                <img className="nav-item" src="assets/img/keeps.png" alt="" />
+                <img onClick={() => setOnMenuOpen(false)} className="nav-item" src="assets/img/keeps.png" alt="" />
             </NavLink>
             <NavLink to="/">
-                <i className=" nav-item fa-solid fa-2x fa-house"></i>
+                <i onClick={() => setOnMenuOpen(false)} className=" nav-item fa-solid fa-2x fa-house"></i>
             </NavLink>
             <NavLink to="/about">
-                <i className=" nav-item fa-solid fa-2x fa-info"></i>
+                <i onClick={() => setOnMenuOpen(false)} className=" nav-item fa-solid fa-2x fa-info"></i>
             </NavLink>
-
 
         </div>
     )

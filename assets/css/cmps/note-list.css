@@ -45,8 +45,17 @@
 
 .note-filter {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+}
+
+.filter-input {
+    padding: 0.5em;
+    box-shadow: 0 1px 3px rgb(165, 165, 165);
+    border: none;
+    margin-bottom: 1em;
+
+
 }
 
 .note-filter-select {

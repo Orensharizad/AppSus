@@ -26,7 +26,6 @@ function query(filterBy = getDefaultFilter()) {
                 notes = notes.filter(note => !note.isArchive && !note.isRemind)
             }
             if (filterBy.type) {
-                console.log('test 2')
                 const regex = new RegExp(filterBy.type, 'i')
                 notes = notes.filter(note => regex.test(note.type))
             }
@@ -36,6 +35,11 @@ function query(filterBy = getDefaultFilter()) {
             if (filterBy.remind) {
                 notes = notes.filter(note => note.isRemind)
             }
+            if (filterBy.search) {
+                const regex = new RegExp(filterBy.search, 'i')
+                notes = notes.filter(note => regex.test(note.info.txt))
+            }
+
 
             return notes
         })
@@ -84,7 +88,6 @@ function _createNotes() {
                 isPinned: true,
                 info: {
                     txt: " The most important of the Warren Buffett quotes: “Rule No. 1 is never lose money. Rule No. 2 is never forget Rule No. ”"
-
                 },
                 style: {
                     backgroundColor: 'rgb(253 207 232)'

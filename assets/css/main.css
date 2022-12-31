@@ -18,18 +18,27 @@
 
 /* Cmps */
 
+
+/* general */
 @import './cmps/user-msg.css';
 @import './cmps/app-header.css';
+@import './cmps/home.css';
+@import './cmps/about.css';
+
+
+/* notes */
 @import './cmps/note-index.css';
 @import './cmps/note-list.css';
 @import './cmps/note-preview.css';
 @import './cmps/note-add.css';
-@import './cmps/mail-list.css';
-@import './cmps/mail-filter.css';
 @import './cmps/note-update.css';
-@import './cmps/mail-list.css';
-@import './cmps/mail-preview.css';
-@import './cmps/mail-details.css';
-@import './cmps/mail-edit.css'
 
-/* @import './apps/mail/cmps/mail-list.css'; */
+
+
+/* mails */
+@import './cmps/mail-list.css';
+@import './cmps/mail-details.css';
+@import './cmps/mail-preview.css';
+@import './cmps/mail-edit.css';
+@import './cmps/mail-filter.css';
+@import './cmps/mail-list.css';

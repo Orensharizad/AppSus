@@ -74,6 +74,9 @@
     color: #222;
 }
 
+.fa-youtube {
+    color: red;
+}
 
 @media (max-width:500px) {
 
