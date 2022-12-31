@@ -41,20 +41,21 @@ export function MailIndex() {
     function onSelectMail(mailId) {
         mailService.get(mailId).then((mail) => {
             const updatedMail = mail
-            updatedMail.isRead = true
+            updatedMail.isRead = !updatedMail.isRead
             setSelectedMail(updatedMail)
+            mailService.save(updatedMail).then(loadMails)
             // console.log('updatedMail:', updatedMail , updatedMail.id);
         })
     }
 
     function onStared(mailId){
-        console.log('mailId:', mailId);
+        // console.log('mailId:', mailId);
         mailService.get(mailId).then((mail) => {
             const updatedMail = mail
             updatedMail.isStared = !updatedMail.isStared
             setSelectedMail(updatedMail)
             mailService.save(updatedMail).then(loadMails)
-            console.log('updatedMail:', updatedMail , updatedMail.id);
+            // console.log('updatedMail:', updatedMail , updatedMail.id);
         })   
     }
 
