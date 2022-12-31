@@ -1,4 +1,4 @@
-export function AddImgNote({ noteToSave, handleChange }) {
+export function AddVideoNote({ noteToSave, handleChange }) {
     return (
 
         <section className="add-img-note">
@@ -12,7 +12,7 @@ export function AddImgNote({ noteToSave, handleChange }) {
             </label>
             <label >
                 <input type="text"
-                    name="url"
+                    name="src"
                     value={noteToSave.url}
                     onChange={handleChange}
                     placeholder='add some URL ...'

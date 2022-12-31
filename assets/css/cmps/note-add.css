@@ -5,6 +5,10 @@
     padding: 7px;
     border-radius: 7px;
     box-shadow: 0 1px 7px rgb(128, 128, 128);
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
 }
 
@@ -28,25 +32,25 @@
 
 }
 
-
+.form-btns {
+    display: flex;
+    justify-content: end;
+}
 
 .form-btns button {
     justify-content: center;
     align-items: center;
-    background: rgb(255, 200, 18);
-    color: #fff;
+    color: rgb(153, 153, 153);
     border: none;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    box-shadow: 0 1px 3px rgb(165, 165, 165);
+    background-color: inherit;
     cursor: pointer;
     outline: none;
 }
 
 .form-btns button:hover {
-    border: 1px solid black;
+    color: #222;
 }
+
 
 .btn-add {
     position: absolute;
@@ -64,4 +68,16 @@
     box-shadow: 0 1px 3px rgb(165, 165, 165);
     cursor: pointer;
     outline: none;
+}
+
+.btn-add:hover {
+    color: #222;
+}
+
+
+@media (max-width:500px) {
+
+    .note-add form {
+        width: 100%;
+    }
 }
