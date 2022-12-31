@@ -15,8 +15,8 @@ export function MailList({ mails, onSelectMail, onRemoveMail, onSetFilter, onSta
         {
         
             mails.map(mail =>
-                 <li onClick={() => onSelectMail(mail.id)}
-                    className='li-preview'
+                 <li className={mail.isRead ? "li-preview-read" : "li-preview" } onClick={() => onSelectMail(mail.id)}
+                  
                     key={mail.id} >
                     <button className={mail.isStared ? "fa-solid fa-star marked" : "fa-solid fa-star "} onClick={() => onStared(mail.id)} ></button>
 

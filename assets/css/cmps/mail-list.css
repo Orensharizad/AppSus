@@ -1,7 +1,6 @@
 .li-preview {
     display: grid;
     grid-template-columns: 5% 90% 5%;
-    background-color: rgb(211, 204, 195);
     height: 45px;
     padding: 10px;
     align-items: center;
@@ -11,7 +10,22 @@
     font-family: sans-serif;
     list-style: none;
     font-weight: bolder;
-    background-color: rgba(240, 240, 240, 0.78)
+    background-color: white
+}
+
+.li-preview-read {
+    display: grid;
+    grid-template-columns: 5% 90% 5%;
+    background-color: rgba(240, 240, 240, 0.78);
+    height: 45px;
+    padding: 10px;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    color: rgb(130, 129, 129);
+    font-family: sans-serif;
+    list-style: none;
+    font-weight: bolder;
 }
 
 .li-preview:hover {
@@ -68,13 +82,12 @@
 
 .stard-button {
     background-color: rgba(214, 214, 214, 0);
-    border: none;
     padding: 20px;
     margin: 20px;
     border-radius: 25px;
-
     text-align: center;
     cursor: pointer;
+    border: none;
 }
 
 .stard-button:hover {
@@ -89,7 +102,30 @@
 }
 
 
-.fa-solid {
+.mail-content button {
+    background: none;
     border: none;
+
+}
+
+
+
+
+
+
+
+@media (max-width:700px) {
+
+    .mail-container {
+        grid-template-columns: 75px 1fr;
+
+    }
+
+    .li-preview {
+        grid-template-columns: 12% 76% 12%;
+
+    }
+
+
 
 }
